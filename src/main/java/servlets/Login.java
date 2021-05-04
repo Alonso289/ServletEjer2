@@ -57,10 +57,12 @@ public class Login extends HttpServlet {
 		boolean correcto = UsuariosService.compruebaCredenciales(session, user, pass);
 
 		if(correcto) {
-		    response.sendRedirect("localhost:8080/Login/opcionesTablas.html");
 			logger.info("REDIRECCIONANDO");
-		}else
+			request.getRequestDispatcher("opcionesTablas.html").forward(request, response);
+		}else {
 			logger.info("ERROR PASS");
+			request.getRequestDispatcher("LoginError.html").forward(request, response);
+		}
 	}
 
 	/**
