@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page isELIgnored="false"%>
+
 <!doctype html>
 <html>
 <head>
@@ -8,7 +11,7 @@
  
 <body>
     <div id="container">
-	
+	<h3>Accediendo con, ${sessionScope.clientName}, ${sessionScope.firstName}, ${sessionScope.secondName}.</h3>
 	<form id="altaUsuarios" action="AltaUsuarios" method="get">
 	    <input type="number" name="rol" placeholder="ID Rol" required> </br>
 	    <input type="text" placeholder="Email" name="email" required> </br>
@@ -26,7 +29,9 @@
     </form>
     
     </div>
-    
-        <div style="margin-top: 10px;"><a href="opcionesTablas.jsp" class="button">Return</a></div>
+    		<%@ include file="Footer.jsp" %>
+    <div style="margin-top: 10px;">
+		<input value = "Return" type="button" onclick="history.back() ">
+	</div>
 </body>
 </html>
